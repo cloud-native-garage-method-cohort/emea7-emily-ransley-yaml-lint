@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+generateName: yaml-lint-run-
+spec:
+pipelineRef:
+name: yaml-lint
+workspaces:
+- name: shared-workspace
+volumeClaimTemplate:
+spec:
+accessModes:
+- ReadWriteOnce 
+resources:
+requests:
+storage: 1Gi
